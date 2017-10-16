@@ -2,8 +2,7 @@ version: 11.5.0.{build}
 image: Visual Studio 2017
 
 environment:
-  STRIPE_TEST_SK:
-    secure: CcMNB0hu30XVzrZiu9MLdpEzejPmX1xqp/kizfUz5s0BaCzAKnfBYRjqO+Q8wTfN
+  STRIPE_TEST_SK: tGN0bIwXnHdwOa85VABjPdSn8nWY7G7I
 
 deploy:
 - provider: NuGet
