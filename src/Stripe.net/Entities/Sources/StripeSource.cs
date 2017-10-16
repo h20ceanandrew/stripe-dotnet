@@ -83,6 +83,9 @@ namespace Stripe
         [JsonProperty("redirect")]
         public StripeRedirect Redirect { get; set; }
 
+        [JsonProperty("ach_credit_transfer")]
+        public StripeSourceACHCreditTransfer ACHCreditTransfer { get; set; }
+
         [JsonProperty("bitcoin")]
         public StripeBitcoin Bitcoin { get; set; }
 

@@ -40,6 +40,16 @@ namespace Stripe
             );
         }
 
+        public virtual StripeList<StripeSourceTransaction> SourceTransactions(string sourceId, StripeSourceTransactionsOptions options = null, StripeRequestOptions requestOptions = null)
+        {
+            var url = $"{Urls.BaseUrl}/sources/{sourceId}/source_transactions";
+
+            return Mapper<StripeList<StripeSourceTransaction>>.MapFromJson(
+                Requestor.GetString(this.ApplyAllParameters(options, url, true),
+                SetupRequestOptions(requestOptions))
+            );
+        }
+
 
 
         // Async
@@ -72,6 +82,17 @@ namespace Stripe
                     SetupRequestOptions(requestOptions),
                     cancellationToken)
                 );
+        }
+
+        public virtual async Task<StripeList<StripeSourceTransaction>> SourceTransactionsAsync(string sourceId, StripeSourceTransactionsOptions options = null, StripeRequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var url = $"{Urls.BaseUrl}/sources/{sourceId}/source_transactions";
+
+            return Mapper<StripeList<StripeSourceTransaction>>.MapFromJson(
+                await Requestor.GetStringAsync(this.ApplyAllParameters(options, url, true),
+                    SetupRequestOptions(requestOptions),
+                    cancellationToken)
+            );
         }
     }
 }
